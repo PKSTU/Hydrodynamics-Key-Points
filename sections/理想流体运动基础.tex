@@ -1,0 +1,65 @@
+\LevelOneTitle{理想流体运动基础}
+
+\LevelTwoTitle{雷诺数$Re$}
+
+\begin{equation*}
+	Re = \dfrac{\rho V L}{\mu}
+\end{equation*}
+
+雷诺数是惯性力和粘性力之比，将流动视作无粘流动（理想流动）的必要条件是$Re \gg 1$。
+
+\LevelTwoTitle{理想流体平衡微分方程（欧拉方程）}
+
+\begin{equation}
+	\dfrac{\mathrm{D} \vec{V}}{\mathrm{D} t} = \vec{g} - \dfrac{1}{\rho} \nabla p \label{eq4.2}
+\end{equation}
+
+本质是牛顿第二定律的应用，压力和重力的合力产生加速度。特别地，若流体加速度为0，这就是第2章中的式\ref{eq2.1}，成为静止流体平衡微分方程。
+
+\LevelTwoTitle{沿流线的伯努利方程}
+
+\begin{equation}
+	\dfrac{V^2}{2} + gz + \dfrac{p}{\rho} = \text{const}
+\end{equation}
+
+\begin{enumerate}
+	\item 物理意义
+	\begin{enumerate}
+		\item $\dfrac{V^2}{2}$表示单位质量流体的动能；
+		\vskip 0.1cm
+		\item $gz$表示单位质量流体的重力势能；
+		\vskip 0.1cm
+		\item $\dfrac{p}{\rho}$表示单位质量流体的压力能；
+		\vskip 0.1cm
+		\item 整个式子表示单位质量流体的机械能沿流线守恒。
+	\end{enumerate}
+	\item 几何意义（2021·简答）
+	\begin{equation}
+		\dfrac{V^2}{2g} + z + \dfrac{p}{\rho g} = \text{const}
+	\end{equation}
+	\begin{enumerate}
+		\item $\dfrac{V^2}{2g}$表示速度水头，是不考虑阻力时流体以速度$V$垂直上射的高度；
+		\vskip 0.1cm
+		\item $z$表示位置水头，是流体质点相对于基准面的位置高度；
+		\vskip 0.1cm
+		\item $\dfrac{p}{\rho g}$表示压强水头，是产生压强$p$所需的流体住高度。
+		\vskip 0.1cm
+		\item 整个式子表示理想流体沿同一条流线的总能头为常数，总能头线是水平直线。
+	\end{enumerate}
+    \item 适用条件（2021·简答）
+    \begin{enumerate}
+    	\item 理想均质不可压；
+    	\item 定常；
+    	\item 质量力有势且只有重力；
+    	\item 沿同一条流线；
+    	\item 无其他能量输入输出。
+    \end{enumerate}
+\end{enumerate}
+
+\LevelTwoTitle{伯努利方程的应用}
+
+毕托管、虹吸管、文丘里流量计。
+
+\begin{tip}
+	本章可能涉及简答题（考查流线伯努利方程的物理意义、几何意义、适用条件，这些一定要清楚）和计算题（伯努利方程的应用），出计算题的概率小一些，会做作业题即可。
+\end{tip}

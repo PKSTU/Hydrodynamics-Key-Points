@@ -1,0 +1,167 @@
+\LevelOneTitle{绕物体的粘性不可压流动}
+
+\begin{tip}
+	2021年春的期末考试题中没有任何一道题涉及本章知识。
+\end{tip}
+
+\LevelTwoTitle{边界层}
+
+\begin{definition}[边界层]
+	高$Re$流动时，贴近固体壁面附近的速度梯度很大，粘性影响不能忽略且流动有旋的薄层。
+\end{definition}
+
+\LevelTwoTitle{三种厚度}
+
+\begin{enumerate}
+	\item 边界层厚度\\
+	由壁面沿外法线到速度达到99\%的距离，随流动方向增大，反映了粘性影响和旋涡扩散范围，数学表达为
+	\begin{equation}
+		\dfrac{u}{U} = 0.99 \Rightarrow y = \delta
+	\end{equation}
+    \item *位移（排挤）厚度\\
+    实际断面流量较理想流动的减少量可以看作壁面向流体方向移动的距离，反映了边界层对主流区的影响程度，数学表达为
+    \begin{equation}
+    	\delta^{*} = \int_{0}^{\delta} \qty(1 - \dfrac{u}{U}) \dd{y}
+    \end{equation}
+    \item *动量损失厚度\\
+    实际断面流体动量较理想流动的减少量可以看作壁面向流体方向移动的距离，动量损失厚度越大，流体的动量损失就越大，数学表达为
+    \begin{equation}
+    	\theta = \int_{0}^{\delta} \dfrac{u}{U}\qty(1 - \dfrac{u}{U}) \dd{y}
+    \end{equation}
+\end{enumerate}
+
+通常情况下，有$\delta > \delta^{*} > \theta$。
+
+\LevelTwoTitle{边界层内的流动}
+
+\LevelThreeTitle{流态判断}
+
+有两个雷诺数用于判断流态，$x$是距前缘的距离，$\delta$是边界层厚度。
+
+\begin{equation*}
+	Re_{x} = \dfrac{Ux}{\nu}, Re_{\delta} = \dfrac{U\delta}{\nu}
+\end{equation*}
+
+\LevelThreeTitle{*流动特征}
+
+边界层流动主要有以下特征：
+
+\begin{enumerate}
+	\item 与流动问题特征长度相比，厚度很小；
+	\item 沿流动方向厚度增加，边界层边缘不与流线重合；
+	\item 沿壁面法线方向速度梯度很大；
+	\item 粘性力和惯性力是同一数量级的；
+	\item 有旋，沿壁面法向各点压强相等；
+	\item 存在层流、湍流两种流态。
+\end{enumerate}
+
+\LevelTwoTitle{顺流平板的绕流}
+
+\begin{enumerate}
+	\item 边界层方程
+	\begin{equation}
+		\dv{\theta}{x} = \dfrac{\tau_{w}}{\rho U^2}
+	\end{equation}
+    \item 阻力公式
+    \begin{equation}
+    	F_D = C_D \dfrac{1}{2} \rho U^2 A
+    \end{equation}
+\end{enumerate}
+
+\LevelThreeTitle{层流边界层}
+
+\begin{enumerate}
+    \item 边界层厚度
+    \begin{equation}
+    	\delta = 5.0 \sqrt{\dfrac{\mu x}{\rho U}}
+    \end{equation}
+    \item 阻力系数
+    \begin{equation}
+    	C_D = \dfrac{1.328}{\sqrt{Re_L}}
+    \end{equation}
+\end{enumerate}
+
+\LevelThreeTitle{湍流边界层}
+
+\begin{enumerate}
+	\item 边界层厚度
+	\begin{equation}
+		\delta = 0.37 \dfrac{x}{Re_x^{0.2}}
+	\end{equation}
+	\item 阻力系数
+	\begin{enumerate}
+		\item $5 \times 10^5 \leq Re_L \leq 10^7$时，
+		\begin{equation}
+			C_D = \dfrac{0.074}{Re_L^{0.2}}
+		\end{equation}
+	    \item $10^7 \leq Re_L \leq 10^9$时，
+	    \begin{equation}
+	    	C_D = \dfrac{0.455}{\qty(\lg Re_L)^{2.58}}
+	    \end{equation}
+	\end{enumerate}
+\end{enumerate}
+
+\LevelThreeTitle{*混合边界层}
+
+\begin{enumerate}
+	\item 转捩临界长度
+	\begin{equation}
+		x_{cr} = \dfrac{Re_{cr} \nu}{U}
+	\end{equation}
+    $L < x_{cr}$（$Re_L < Re_{cr}$），平板边界层为层流边界层，$L > x_{cr}$（$Re_L > Re_{cr}$）为混合边界层。
+    \item 阻力简单模型：全部湍流-$x_{cr}$之前湍流+$x_{cr}$之前层流
+    \begin{enumerate}
+    	\item $Re_L \leq 10^7$时，
+    	\begin{equation}
+    		F_D = \dfrac{1}{2} \rho U^2 b \qty[\dfrac{0.074}{Re_L^{0.2}} L - \dfrac{0.074}{Re_L^{0.2}} x_{cr} + \dfrac{1.328}{\sqrt{Re_L}} x_{cr}]
+    	\end{equation}
+    	\item $10^7 < Re_L < 10^9$时，
+    	\begin{equation}
+    		F_D = \dfrac{1}{2} \rho U^2 b \qty[\dfrac{0.455}{\qty(\lg Re_L)^{2.58}} L - \dfrac{0.074}{Re_L^{0.2}} x_{cr} + \dfrac{1.328}{\sqrt{Re_L}} x_{cr}]
+    	\end{equation}
+    \end{enumerate}
+\end{enumerate}
+
+\LevelTwoTitle{曲壁边界层分离}
+
+曲壁边界层分离必要条件是
+
+\begin{enumerate}
+	\item 固体壁面；
+	\item 逆压梯度$\displaystyle \pdv{p}{x} > 0$（压力合力与流速方向相反，与粘性力合力方向相同，发生回流）；
+	\item 粘性流体。
+\end{enumerate}
+
+分离点满足
+
+\begin{equation}
+	\eval{\pdv{u}{y}}_{y = 0} = 0
+\end{equation}
+
+\LevelTwoTitle{例题练习}
+
+\begin{example}
+	一长为2.4 m，宽为0.9 m的光滑矩形平板沿长边方向以6 m/s的速度在静止空气中运动，已知空气密度为1.21 kg/m$^3$，运动粘度$\nu = 14.9$ mm$^2$/s。假定平板边界层全为层流，试计算平板后缘边界层的厚度以及使平板运动所需要的功率。若平板边界层全为湍流，功率为多大？
+	
+	\begin{enumerate}
+		\item 若为层流边界层，则
+		\begin{equation*}
+			\delta = 5\sqrt{\dfrac{\nu L}{U}} = 5\sqrt{\dfrac{14.9 \times 10^{-6} \times 2.4}{6}} \mathrm{~m} = 0.01221 \mathrm{~m}
+		\end{equation*}
+	    又
+	    \begin{equation*}
+	    	Re_L = \dfrac{UL}{\nu}, ~C_D = \dfrac{1.328}{Re_L}
+	    \end{equation*}
+        则两侧摩擦阻力
+        \begin{align*}
+        	F_D &= 2C_D \cdot \dfrac{1}{2} \rho U^2 \cdot bL\\
+        	&= 2\times \dfrac{1.328}{\sqrt{\dfrac{6 \times 2.4}{14.9 \times 10^{-6}}}} \times \dfrac{1}{2} \times 1.21 \times 6^2 \times 0.9 \times 2.4 \mathrm{~N}\\
+        	&= 0.1271 \mathrm{~N}
+        \end{align*}
+        所需功率
+        \begin{equation*}
+        	\dot{W} = F_D \cdot U = 0.1271 \times 6 \mathrm{~W} = 0.7626 \mathrm{~W}
+        \end{equation*}
+        \item 若为湍流边界层，则$C_D = \dfrac{0.0742}{(Re_L)^{0.2}}$，同样的计算方法解得$\dot{W} = 2.661 \mathrm{~W}$。
+	\end{enumerate}
+\end{example}

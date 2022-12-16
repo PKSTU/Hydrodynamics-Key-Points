@@ -1,0 +1,129 @@
+\LevelOneTitle{流体及其主要的物理性质}
+
+\LevelTwoTitle{流体与连续介质模型}
+
+\LevelThreeTitle{什么是流体}
+
+\begin{definition}[流体]
+	任意微小剪切力持续作用下发生连续变形的物质。
+\end{definition}
+
+\begin{tip}
+	流体的这条定义明确地指出了其与固体的区别，简单地说，流体不能受剪。
+\end{tip}
+
+\LevelThreeTitle{流体质点}
+
+\begin{definition}
+	微小特征体，包含大量分子，具有确定的宏观统计特征。
+\end{definition}
+
+\begin{tip}
+	教材上关于流体质点的描述：包含有足够多的分子因此具有确定的宏观统计特性，同时与流场的特征长度相比线性尺寸又充分小，可以看作一个几何点的流体团。
+\end{tip}
+
+\LevelThreeTitle{连续介质模型}
+
+\begin{definition}[连续介质模型]
+	流体由无限多流体质点连绵不断组成，质点之间无间隙。
+\end{definition}
+
+\LevelThreeTitle{连续介质模型的适用条件}
+
+分子平均自由程$\ll$流动问题特征尺寸。所以对于稀薄气体，或者是激波层内，连续介质模型不再适用。
+
+\LevelTwoTitle{流体的可压缩性}
+
+\LevelThreeTitle{体积弹性模量}
+
+\begin{equation}
+	E_v = \rho \qty(\pdv{p}{\rho})_T = -V \qty(\pdv{p}{V})_T
+\end{equation}
+
+这是用来衡量流体可压缩性的一个物理量，流体的体积弹性模量越大，表示流体的体积越难被改变（可以理解为越硬，或者越接近于固体的性质），即流体可压缩性越小。
+
+同样的外界条件下，液体的$E_v$比气体的$E_v$大得多，这表明气体比液体更好压缩。
+
+特别地，如果我们认为气体是理想气体，那么根据理想气体状态方程和过程方程，就可以得到如下结论：
+
+\begin{enumerate}
+	\item 等温过程中，气体体积弹性模量$E_v = p$;
+	\item 等熵过程中，气体体积弹性模量$E_v = \gamma p$，其中$\gamma = c_p / c_v$. 
+\end{enumerate}
+
+\LevelThreeTitle{不可压缩流体}
+
+\begin{definition}[不可压缩流体]
+	当流体的体积弹性模量$E_v \to \infty$，我们就称该流体不可压缩。这是一种假想的模型，实际流体都具有压缩性。
+\end{definition}
+
+一般地，液体可视作不可压缩，但水击、水下爆炸等现象中应当视作可压缩；气体可视作可压缩，但低速且温差小的气体应当视作不可压缩。
+
+特别地，均质不可压缩流体的数学表达为$\rho = \text{const}$. 
+
+\begin{tip}
+	此处注意，流体不可压和均质并不是等价的，具体的解释需要用到物质导数相关的知识，你可以点击\ref{3.3.3}来查看。
+\end{tip}
+
+\LevelTwoTitle{流体的粘性}
+
+\LevelThreeTitle{什么是流体的粘性}
+
+\begin{definition}[粘性]
+	流体抵抗剪切变形（相对运动）的一种固有的属性。
+\end{definition}
+
+\begin{tip}
+	此处应当注意“固有属性”的涵义，当流体层间无相对运动时，流体对外不表现粘性，但不能认为此时流体失去了粘性。
+\end{tip}
+
+\LevelThreeTitle{流体粘性产生的机理及温度对粘性的影响（2021·简答）}
+
+\begin{enumerate}
+	\item 对于液体来讲，其粘性源于分子间内聚力，流体团的剪切变形改变了分子间距离，微观上，分子间引力阻止分子间距离改变，宏观上表现为内摩擦抵抗流体变形。当温度升高时，分子间内聚力变弱，于是粘性减小。
+	\item 对于气体来讲，其粘性源于分子热运动，流体层间相对运动时，分子热运动导致层间发生动量交换，宏观上依然表现为内摩擦抵抗流体变形。当温度升高时，分子热运动变得更剧烈，于是粘性增大。
+\end{enumerate}
+
+\LevelThreeTitle{牛顿内摩擦定律}
+
+\begin{definition}
+	粘性切应力（单位：N/m$^2$）与层间速度梯度（角变形率）成正比，而与速度（角变形量）无关，即
+	\begin{equation}
+		\tau = \mu \dv{u}{y} = \mu \dv{\gamma}{t}
+	\end{equation}
+\end{definition}
+
+\LevelThreeTitle{动力粘度和运动粘度}
+
+动力粘度用$\mu$表示，单位是Pa$\cdot$s，可以反映流体真实的粘性大小，动力粘度越大，说明流体粘性越大，数学表达为
+
+\begin{equation}
+	\mu = \dfrac{\tau}{\dd{u}/\dd{y}}
+\end{equation}
+
+运动粘度用$\nu$表示，单位是m$^2$/s，不能反映流体真实的粘性大小，数学表达为
+
+\begin{equation}
+	\nu = \dfrac{\mu}{\rho}
+\end{equation}
+
+\LevelThreeTitle{牛顿流体和非牛顿流体（2021·选择）}
+
+\begin{definition}[牛顿流体和非牛顿流体]
+	符合牛顿内摩擦定律的流体就是牛顿流体，例如水，酒精等大多数纯液体和低速流动的气体；不符合牛顿内摩擦定律的流体就是非牛顿流体，例如纸浆、面糊和泥石流等。
+\end{definition}
+
+\LevelThreeTitle{理想流体}
+
+\begin{definition}[理想流体]
+	粘度为零的流体就是理想流体，即$\mu = 0$。
+\end{definition}
+
+实际流体都具有粘性。
+
+\LevelTwoTitle{*作用在流体上的两种力}
+
+\begin{enumerate}
+	\item 质量力，作用于流体的每个质点上，大小与流体质量成正比，例如重力、惯性力。
+	\item 表面力，作用于流体封闭界面上，大小与流体表面积成正比，例如压力、摩擦力。
+\end{enumerate}

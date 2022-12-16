@@ -1,0 +1,83 @@
+\LevelOneTitle{流体静力学}
+
+\LevelTwoTitle{流体静压强}
+
+\LevelThreeTitle{流体静压强的特点}
+
+\begin{enumerate}
+	\item 方向垂直于作用面，并指向流体内部；
+	\item    静止流体任意点处静压强大小与其作用面方位无关，只是作用点位置的函数，即$p = f(x, y, z)$
+\end{enumerate}
+
+\LevelThreeTitle{理想流体压强的特点}
+
+无论运动与否，理想流体压强都只是作用点位置的函数，$p = f(x, y, z)$。
+
+\LevelTwoTitle{静止流体平衡微分方程}
+
+\begin{equation}
+	\vec{f} - \dfrac{1}{\rho} \nabla p = 0 \label{eq2.1}
+\end{equation}
+
+物理意义：单位质量静止流体中压力与质量力平衡。由该方程也可以推知：等压面与质量力处处垂直。
+
+考虑在重力场中，质量力只有$-\va*{z}$方向的重力，于是有
+
+\begin{equation}
+	\dv{p}{z} = -\rho g
+\end{equation}
+
+若是均质不可压缩流体，则有
+
+\begin{equation}
+	p_1 = p_2 + \rho g h
+\end{equation}
+
+这个式子表明：
+
+\begin{enumerate}
+	\item 铅垂方向上，压强与淹深呈线性关系；
+	\item 等压面为水平面。
+\end{enumerate}
+
+\LevelTwoTitle{*帕斯卡原理}
+
+\begin{theorem}[帕斯卡原理]
+	充满液体的连通器内，一点的压强变化可瞬时传递到整个连通器内。
+\end{theorem}
+
+\begin{tip}
+	注意此处可以与第11章的微弱扰动波联系起来。实际上压强变化属于微弱扰动，在流体中以音速传播，若认为液体不可压缩，即$E_v \to \infty$，根据$a = \sqrt{E_v/\rho}$可得其传播速度为无穷大。这就是帕斯卡原理只适用于\textbf{充满液体}的连通器内的原因。
+\end{tip}
+
+\LevelTwoTitle{三种压强}
+
+\begin{enumerate}
+	\item 绝对压强$p$，以完全真空状态为零压强计量的压强；
+	\item 计示压强$p_m$，以当地大气压强为基准计量的压强，$p_m = p - p_a$；
+	\item 真空压强$p_v$，绝对压强低于当地大气压强时的计示压强的绝对值，$p_v = p_a - p$。
+\end{enumerate}
+
+\LevelTwoTitle{*三种测压计的特点}
+
+\begin{enumerate}
+	\item 单管测压计
+	\begin{enumerate}
+		\item 被测压强不能太大；
+		\item 只能测量液体压强；
+		\item 被测压强必须高于当地大气压强，即无法测得真空压强。
+	\end{enumerate}
+    \item U型管测压计
+    \begin{enumerate}
+    	\item 测量范围比较大；
+    	\item 可以测液体、气体压强；
+    	\item 可以测真空压强;
+    	\item 指示液不能与被测液掺混。
+    \end{enumerate}
+    \item 倾斜式微压计
+    放大了测量距离，提高了测量精度，应注意计算方法。
+\end{enumerate}
+
+\begin{tip}
+	对于本章，必须要掌握的计算题就是较复杂的组合管测压计的计算，可以参考课后题练习。
+\end{tip}

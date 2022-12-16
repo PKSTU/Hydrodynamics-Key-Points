@@ -1,0 +1,201 @@
+\LevelOneTitle{流体运动学基础}
+
+\LevelTwoTitle{描述流体运动的两种方法}
+
+\LevelThreeTitle{拉格朗日方法}
+
+着眼于流体质点，描述每个质点自始至终的运动规律，此方法下对于任一物理量$\eta$的数学表达可以写作
+
+\begin{equation}
+	\eta = \eta(a, b, c, t)
+\end{equation}
+
+其中$(a, b, c)$是流体质点初始时刻位置坐标，$t$是时刻，它们统称为拉格朗日变数。
+
+\LevelThreeTitle{欧拉方法（使用更广泛）}
+
+着眼于空间点，描述空间某点流体物理量随时间的变化规律及由一点转向另一点时该量的变化，此方法下对于任一物理量$\eta$的数学表达可以写作
+
+\begin{equation}
+	\eta = \eta(x, y, z, t)
+\end{equation}
+
+其中$(x, y, z)$是空间点的位置坐标，$t$是时刻，它们统称为欧拉变数。
+
+\begin{tip}
+	可以这样理解，想象一个任意小的监测器，对于两种研究方法：
+	\begin{itemize}
+		\item 拉格朗日方法是把监测器放置在流体质点上，在流动过程中监测器始终跟着流体质点运动，能反映这个流体质点从头到尾的物理量变化；
+		\item 欧拉方法是把监测器放置在一个空间点上，在流动过程中监测器不动，能反映流过这个空间点的流体质点的物理量变化。
+		\item 举个简单的例子，就拿测速度来说，依据拉格朗日方法，就应该在流体质点上安置速度传感器，而依据欧拉方法，则应该在固定空间位置上安置风速仪。
+	\end{itemize}
+\end{tip}
+
+\LevelTwoTitle{几个重要的概念}
+
+\begin{enumerate}
+	\item 定常
+	\begin{equation}
+		\pdv{\eta}{t} = 0
+	\end{equation}
+    \item 均匀
+    \begin{equation}
+    	\pdv{\eta}{x} = \pdv{\eta}{y} = \pdv{\eta}{z} = 0
+    \end{equation}
+    \item $n$维流动\\
+    速度场为$n$个空间坐标的函数。
+    \item 迹线\\
+    流体质点在空间运动时描绘出的轨迹，是同一质点，不同时刻空间位置的连线，是实际存在的线，随时间增长而延长，属于拉格朗日方法下的概念，数学表达为
+    \begin{equation}
+    	\dfrac{\dd{x}}{u} = \dfrac{\dd{y}}{v} = \dfrac{\dd{z}}{w} = \dd{t}
+    \end{equation}
+    \item 流线\\
+    某瞬时流场中一条假想的曲线，曲线上各点速度方向与该点处切线方向重合，是不同质点，同一时刻空间位置的连线，其走向和疏密反映了某瞬时流体速度方向和大小（流线密的地方流速大），属于欧拉方法下的概念，数学表达为
+    \begin{equation}
+    	\vec{V} \times \dd{\vec{l}} \text{~或~} \dfrac{\dd{x}}{u} = \dfrac{\dd{y}}{v} = \dfrac{\dd{z}}{w}
+    \end{equation}
+    一般情况下，流线不能相交和转折，但奇点和驻点处除外。
+    \item *脉线\\
+    相继通过流场同一空间点的流体质点在同一瞬时的连线，反映流场结构、流动特点，可以用染色剂通过细管掺入流体中，染色剂的轨迹就是脉线，故也可以把脉线称为染色线。
+    \begin{tip}
+    	定常流动时，流线形状位置不随时间改变，迹线、流线和脉线三线合一。
+    \end{tip}
+    \item *流管\\
+    在流场中作一封闭且不自相交的曲线，在某瞬时通过该曲线上的流线构成的管状表面。显然，定常流动时，流管的形状也不改变。
+    \item *过流断面\\
+    与总流所有流线垂直的截面。
+\end{enumerate}
+
+\LevelTwoTitle{物质导数}
+
+\LevelThreeTitle{物质导数的数学表达、物理意义和理解}
+
+任意物理量$\eta$的物质导数
+
+\begin{equation}
+	\dfrac{\mathrm{D}\eta}{\mathrm{D}t} = \pdv{\eta}{t} + \vec{V} \cdot \nabla \eta 
+\end{equation}
+
+各项的物理意义如下：
+
+\begin{enumerate}
+	\item $\dfrac{\mathrm{D}\eta}{\mathrm{D}t}$表示流体质点的物理量$\eta$随时间的变化率，称为物质导数（或质点导数、随体导数）；
+	\vskip 0.1cm
+	\item $\displaystyle \pdv{\eta}{t}$表示空间点上的物理量$\eta$随时间的变化率，反映了物理量场的非定常性，称为局部导数（或当地导数）；
+	\item $\vec{V} \cdot \nabla \eta$表示流体质点在非均匀的物理量场运动引起的$\eta$的变化率，称为位变导数（或对流导数）。
+\end{enumerate}
+
+\begin{tip}
+	物质导数是一个非常难理解的概念，可以通过下面这个典型的例子来理解。
+	\begin{enumerate}
+		\item 想象这样一个情景：某人傍晚从山脚出发去爬山，当他到达山顶时已经是凌晨了，在爬山的过程中，他感到气温变低了，这是物质导数。他有这样的感觉，是两方面的因素决定的。
+		\item 一方面，时间从傍晚推移到凌晨，气温会降低，这是当地气温随时间变化导致的，反映了气温的非定常性，这就是局部导数（当地导数）；
+		\item 另一方面，从山脚到山顶，在这个运动过程中，他所处的海拔变高，气温也是降低的，这是他在非均匀的温度分布空间上的运动导致的，这就是位变导数（对流导数）；
+		\item 物质导数就是综合考虑了这两方面的结果，同时把拉格朗日方法和欧拉方法联系了起来。
+	\end{enumerate}
+\end{tip}
+
+\LevelThreeTitle{物质导数描述加速度}
+
+\begin{equation}
+	\vec{a} = \dfrac{\mathrm{D}\vec{V}}{\mathrm{D}t} = \pdv{\vec{V}}{t} + \vec{V} \cdot \nabla \vec{V}
+\end{equation}
+
+各项物理意义不再赘述，这时要注意两个问题。
+
+\begin{enumerate}
+	\item 速度场定常$\Leftrightarrow \displaystyle \pdv{\vec{V}}{t} = 0$；
+	\vskip 0.1cm
+	\item 速度场均匀$\Rightarrow \vec{V} \cdot \nabla \vec{V} = 0$，但反过来不成立。
+\end{enumerate}
+
+\LevelThreeTitle{物质导数描述不可压缩流体}\label{3.3.3}
+
+\begin{definition}[不可压缩流体]
+	运动过程中流体质点密度不变的流体叫不可压缩流体，数学表达为
+	\begin{equation}
+		\dfrac{\mathrm{D}\rho}{\mathrm{D}t} = 0
+	\end{equation}
+\end{definition}
+
+均质流体的数学表达为$\nabla \rho = 0$，均质不可压缩流体的数学表达为$\rho = \text{const}$。
+
+显然，$\dfrac{\mathrm{D}\rho}{\mathrm{D}t} = 0 \nLeftrightarrow \nabla \rho = 0$，即流体不可压和均质并不等价，进一步，均质不可压缩流体也不能简单地描述为不可压缩流体。
+
+\LevelTwoTitle{流体微团的运动}
+
+\LevelThreeTitle{分类}
+
+流体微团的运动分为三种：平动、变形（线变形和角变形）、旋转。
+
+\LevelThreeTitle{数学描述}
+
+\begin{enumerate}
+	\item 平动的描述上文已说明;
+	\item 线变形
+	\begin{enumerate}
+		\item *相对伸长率
+		\begin{equation*}
+			\pdv{u}{x}, \pdv{v}{y}, \pdv{w}{z}
+		\end{equation*}
+	    \item 相对体积膨胀率
+	    \begin{equation*}
+	    	\dfrac{1}{\delta \tau} \cdot \dfrac{\mathrm{D}(\delta \tau)}{\mathrm{D}t} = \pdv{u}{x} + \pdv{v}{y} + \pdv{w}{z} = \nabla \cdot \vec{V} 
+	    \end{equation*}
+        不可压缩流体也可以表达为$\nabla \cdot \vec{V} = 0$，这是拉格朗日方法下推得的。
+	\end{enumerate}
+    \item *角变形率
+    \begin{equation*}
+    	\dfrac{\mathrm{D}\gamma_{xy}}{\mathrm{D}t} = \pdv{u}{y} + \pdv{v}{x}, \dfrac{\mathrm{D}\gamma_{yz}}{\mathrm{D}t} = \pdv{v}{z} + \pdv{w}{y}, \dfrac{\mathrm{D}\gamma_{zx}}{\mathrm{D}t} = \pdv{w}{x} + \pdv{u}{z}
+    \end{equation*}
+    \item 旋转角速度
+    \begin{equation*}
+    	\vec{\omega} = \dfrac{1}{2} \nabla \times \vec{V}
+    \end{equation*}
+    无旋$\Leftrightarrow \vec{\omega} = 0$
+\end{enumerate}
+
+\LevelTwoTitle{*连续性原理}\label{3.5}
+
+对于连续性原理，有两种表述：
+\begin{enumerate}
+	\item 拉格朗日方法：系统包含的质量在运动过程中不变；
+	\item 欧拉方法：净流出控制体的流体质量 = 控制体减少的流体质量。
+\end{enumerate}
+
+\LevelThreeTitle{连续方程}
+
+\begin{equation}
+	\pdv{\rho}{t} + \nabla \cdot (\rho \vec{V}) = 0
+\end{equation}
+
+这是在欧拉方法下推得的，是质量守恒定律的表现，是流动存在的必要条件，对理想和粘性流体均适用。
+
+\begin{enumerate}
+	\item 若是定常流动，则有$\nabla \cdot (\rho \vec{V}) = 0$，表示净流出单位控制体的质量流量为0；
+	\item 若是不可压缩流动，则有$\nabla \cdot \vec{V} = 0$，表示净流出单位控制体的体积流量为0。
+\end{enumerate}
+
+\begin{tip}
+	可以看到，在欧拉方法下推得的不可压缩流动表达式和拉格朗日方法下的结果一致，这说明了两种研究方法在结果上的共通性，但应注意二者的物理意义并不相同。
+	
+	对于同样形式的$\nabla \cdot \vec{V} = 0$，
+	
+	\begin{enumerate}
+		\item 拉格朗日方法认为，这表示流体微团的相对体积膨胀率为0；
+		\item 欧拉方法认为，这表示净流出单位控制体的体积流量为0。
+	\end{enumerate}
+\end{tip}
+
+\LevelThreeTitle{一维定常流动连续方程}
+
+一般来讲，在后续章节遇到的计算中用到的连续方程都属于此类。
+
+\begin{enumerate}
+	\item 不可压缩流体，体积流量守恒，$Q = \text{const} \Rightarrow \overline{V}_1A_1 = \overline{V}_2A_2$；
+	\item 可压缩流体，质量流量守恒，$\dot{m} = \text{const} \Rightarrow \rho_1\overline{V}_1A_1 = \rho_2\overline{V}_2A_2$
+\end{enumerate}
+
+\begin{tip}
+	依照课程设置，只有在第11章涉及可压缩流体，会用到质量流量守恒，其余章节全部使用体积流量守恒。
+\end{tip}

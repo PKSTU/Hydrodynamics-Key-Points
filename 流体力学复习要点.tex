@@ -1,0 +1,148 @@
+\documentclass[allowbf, simple name, palatino, a4paper]{einfart}
+
+\nolinenumbers % Enable line numbers
+
+%%================================
+%% Import toolkit
+%%================================
+\usepackage{ProjLib}
+\usepackage{longtable}  % breakable tables
+\usepackage{hologo}     % more TeX logo
+
+\usepackage{relsize}
+\usepackage{booktabs}
+\usepackage{blindtext}
+\usepackage{physics}
+\UseLanguage{Chinese}
+
+%%================================
+%% For typesetting code
+%%================================
+\usepackage{listings}
+\definecolor{maintheme}{RGB}{70,130,180}
+\definecolor{forestgreen}{RGB}{21,122,81}
+\definecolor{lightergray}{gray}{0.99}
+\lstset{language=[LaTeX]TeX,
+    keywordstyle=\color{maintheme},
+    basicstyle=\ttfamily,
+    commentstyle=\color{forestgreen}\ttfamily,
+    stringstyle=\rmfamily,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{lightergray},
+    flexiblecolumns=true,
+    escapeinside={(*}{*)},
+    % numbers=left,
+    numberstyle=\scriptsize, stepnumber=1, numbersep=5pt,
+    % firstnumber=last,
+}
+\providecommand{\meta}[1]{$\langle${\normalfont\itshape#1}$\rangle$}
+\lstset{moretexcs=%
+    {linenumbers,nolinenumbers,part,parttext,chapter,section,subsection,subsubsection,frontmatter,mainmatter,backmatter,tableofcontents,href,
+    color,NameTheorem,CreateTheorem,cref,DNF,UseLanguage,UseOtherLanguage,AddLanguageSetting,maketitle,address,curraddr,email,keywords,subjclass,thanks,dedicatory,TheDate,ProjLib,qedhere
+    }
+}
+\lstnewenvironment{code}%
+{\setstretch{1.07}\LocallyStopLineNumbers%
+\setkeys{lst}{columns=fullflexible,keepspaces=true}%
+}
+{\ResumeLineNumbers}
+\lstnewenvironment{code*}%
+{\setstretch{1.07}\LocallyStopLineNumbers%
+\setkeys{lst}{numbers=left,columns=fullflexible,keepspaces=true}%
+}
+{\ResumeLineNumbers}
+
+%%================================
+%% tip
+%%================================
+\usepackage[many]{tcolorbox}
+\newenvironment{tip}[1][提示]{%
+    \LocallyStopLineNumbers%
+    \begin{tcolorbox}[breakable,
+        enhanced,
+        width = \textwidth,
+        colback = paper, colbacktitle = paper,
+        colframe = gray!50, boxrule=0.2mm,
+        coltitle = black,
+        fonttitle = \sffamily,
+        attach boxed title to top left = {yshift=-\tcboxedtitleheight/2, xshift=.5cm},
+        boxed title style = {boxrule=0pt, colframe=paper},
+        before skip = 0.3cm,
+        after skip = 0.3cm,
+        top = 3mm,
+        bottom = 3mm,
+        title={\scshape\sffamily #1}]%
+}{\end{tcolorbox}\ResumeLineNumbers}
+
+%%================================
+%% Names
+%%================================
+\providecommand{\minimalist}{\textsf{minimalist}}
+\providecommand{\minimart}{\textsf{minimart}}
+\providecommand{\minimbook}{\textsf{minimbook}}
+\providecommand{\einfart}{\textsf{einfart}}
+\providecommand{\simplivre}{\textsf{simplivre}}
+
+%%================================
+%% Titles
+%%================================
+\let\LevelOneTitle\section
+\let\LevelTwoTitle\subsection
+\let\LevelThreeTitle\subsubsection
+\numberwithin{equation}{section}
+\makeatletter
+\renewcommand\normalsize{%
+	\@setfontsize\normalsize\@xpt\@xiipt
+	\abovedisplayskip 5\p@ \@plus2\p@ \@minus5\p@
+	\abovedisplayshortskip \z@ \@plus3\p@
+	\belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+	\belowdisplayskip \abovedisplayskip
+	\let\@listi\@listI}
+\makeatother
+%%================================
+%% Main text
+%%================================
+\begin{document}
+
+\def\PackageVersion{2022/06/16}
+
+\title{流体力学·复习要点}
+\author{核工A002班 \quad 张恺}
+\date{\TheDate{\PackageVersion}[only-year-month]，彭康学导团}
+
+\maketitle
+
+\begin{abstract}
+    流体力学是一门又难又简单的课，说它难是因为课本讲得难、上课学得难，说它简单是因为考试简单。有一份流传已久的复习提纲，涵盖了几乎所有的考试重点，但只有问题没有解答，在复习备考时，我根据这份提纲和课程组的PPT，整理了一份复习要点笔记，最终取得了比较好的成绩。我使用\LaTeX 重新排版了这份笔记，作了一些修订和删减，完成后由能动A001班~孙溢和王林业审核增删。为保证复习到所有考点，这份笔记比较详细，正文中不必须掌握的用“*”标出。这份笔记只能作为复习时的资料，非常不建议作为初次学习时的笔记使用。个人水平有限，欢迎批评指正。
+\end{abstract}
+
+\setcounter{tocdepth}{1}
+{\setstretch{1.07}\tableofcontents}
+
+\medskip
+
+\input{sections/流体及其主要的物理性质.tex}
+
+\input{sections/流体静力学.tex}
+
+\input{sections/流体运动学基础.tex}
+
+\input{sections/理想流体运动基础.tex}
+
+\input{sections/粘性流动基础.tex}
+
+\input{sections/流体动力学积分方程.tex}
+
+\input{sections/相似原理.tex}
+
+\input{sections/势流.tex}
+
+\input{sections/管道内流动.tex}
+
+\input{sections/绕物体的粘性不可压流动.tex}
+
+\input{sections/可压缩流动基础.tex}
+
+\end{document}
